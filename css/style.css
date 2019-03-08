@@ -1,7 +1,188 @@
 /*
  * global site styles
  */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+hp-content {
 
-#content {
-  background-color: #f00;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+}
+
+hp-presentation {
+    display: block;
+    background-color: #fff;
+
+    width: 80vmin;
+    height: 80vmin;
+    margin: auto;
+
+    border: 2px solid black;
+    border-radius: 10%;
+}
+
+hp-presentation>hp-slide {
+    display: none;
+}
+hp-presentation>hp-slide.active {
+    display: inline-block;
+}
+
+
+hp-slide {
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+
+    font-size: 8vmin;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+
+}
+
+hp-chooser {
+    width: 100%;
+    height: 20vmin;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+hp-chooser.fixed {
+    height: auto;
+}
+
+hp-chooser * {
+    max-width: 20%;
+    margin: 5% 2.5%;
+}
+
+hp-chooser.chosen>*.chosen {
+    max-width: 30%;
+}
+hp-chooser.chosen.animate .chosen {
+    animation-name: chosen;
+    animation-duration: .5s;
+    animation-timing-function: ease;
+}
+hp-chooser.fixed>*.chosen {
+    max-width: 50%;
+    animation-name: chosen_fixed;
+    animation-duration: .5s;
+}
+
+@keyframes chosen_fixed {
+    from {
+        max-width: 30%;
+    }
+    to {
+        max-width: 50%;
+    }
+}
+
+@keyframes chosen {
+    from {
+        max-width: 20%;
+    }
+    to {
+        max-width: 30%;
+    }
+}
+
+hp-chooser.chosen>*:not(.chosen) {
+    max-width: 16.6%;
+    opacity: .25;
+}
+hp-chooser.fixed>*:not(.chosen) {
+    max-width: 0%;
+    opacity: .25;
+    animation-name: unchosen_fixed;
+    animation-duration: .5s;
+}
+
+@keyframes unchosen_fixed {
+    from {
+        max-width: 16.6%;
+    }
+    to {
+        max-width: 0%;
+    }
+}
+
+hp-chooser.chosen.animate>*:not(.chosen) {
+    animation-name: unchosen;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}
+
+@keyframes unchosen {
+    from {
+        max-width: 20%;
+        opacity: 1;
+    }
+    to {
+        max-width: 16.6%;
+        opacity: .25%;
+    }
+
+}
+
+
+hp-learn {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+hp-learn hp-learn-no, hp-learn hp-learn-yes {
+    max-width: 20%;
+    visibility: hidden;
+}
+
+.learn-no hp-learn-no {
+    visibility: visible;
+    color: red;
+}
+.learn-yes hp-learn-yes {
+    visibility: visible;
+    color: green;
+}
+
+
+hp-learn img {
+    max-width: 50%;
+    transition: margin .5s;
+}
+
+hp-learn.match img {
+    /*margin-top: 5%;*/
+    margin-right: 14%;
+}
+
+#tfo hp-title {
+    opacity: 0;
+    animation-name: tfo;
+    animation-duration: 2s;
+}
+
+@keyframes tfo {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }

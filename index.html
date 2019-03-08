@@ -8,7 +8,7 @@
   <meta name="description" content="[Site Description]">
   <meta name="author" content="[Author]">
 
-  <link rel="stylesheet" href="css/style.css?v=1.0">
+  <link rel="stylesheet" href="css/style.css">
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -16,9 +16,84 @@
 </head>
 
 <body>
-  <div id="content">
-    <h1>slide show goes here</h1>
-  </div>
+  <hp-content>
+    <hp-presentation>
+
+      <hp-slide class="active">
+        <hp-title>Which shape</hp-title>
+        <hp-chooser>
+          <img src="images/triangle.svg" alt="">
+          <img src="images/circle.svg" alt="">
+          <img src="images/diamond.svg" alt="">
+          <img src="images/square.svg" alt="">
+        </hp-chooser>
+        <hp-title>doesn't belong</hp-title>
+      </hp-slide>
+
+      <hp-slide data-autoadvance="3500">
+        <hp-title>Which shape</hp-title>
+        <hp-chooser class="chosen animate">
+          <img src="images/triangle.svg" alt="">
+          <img src="images/circle.svg" class="chosen" alt="">
+          <img src="images/diamond.svg" alt="">
+          <img src="images/square.svg" alt="">
+        </hp-chooser>
+        <hp-title>doesn't belong</hp-title>
+      </hp-slide>
+
+      <hp-slide data-autoadvance="animationend">
+        <hp-title>How did</hp-title>
+        <hp-chooser class="fixed">
+          <img src="images/triangle.svg" alt="">
+          <img src="images/circle.svg" class="chosen" alt="">
+          <img src="images/diamond.svg" alt="">
+          <img src="images/square.svg" alt="">
+        </hp-chooser>
+        <hp-title>you know?</hp-title>
+      </hp-slide>
+
+      <hp-slide data-autoadvance="1500">
+        <hp-title>How did</hp-title>
+        <hp-learn class="match">
+          <hp-learn-no>no</hp-learn-no>
+          <img src="images/circle.svg" alt="">
+          <hp-learn-yes>yes</hp-learn-yes>
+        </hp-learn>
+        <hp-title>you know?</hp-title>
+      </hp-slide>
+
+
+      <hp-slide id="tfo" data-autoadvance="animationend">
+        <hp-title>How did</hp-title>
+        <hp-learn>
+          <hp-learn-no>no</hp-learn-no>
+          <img src="images/circle.svg" alt="">
+          <hp-learn-yes>yes</hp-learn-yes>
+        </hp-learn>
+        <hp-title>you know?</hp-title>
+      </hp-slide>
+
+      <hp-slide data-autoadvance="1500">
+        <hp-title>Answer: you</hp-title>
+        <hp-learn>
+          <hp-learn-no>no</hp-learn-no>
+          <img src="images/circle.svg" alt="">
+          <hp-learn-yes>yes</hp-learn-yes>
+        </hp-learn>
+        <hp-title>learned</hp-title>
+      </hp-slide>
+
+      <hp-slide data-onshow="runLearningSequence">
+        <hp-title>Answer: you</hp-title>
+        <hp-learn>
+          <hp-learn-no>no</hp-learn-no>
+          <img src="images/circle.svg" alt="">
+          <hp-learn-yes>yes</hp-learn-yes>
+        </hp-learn>
+        <hp-title>learned</hp-title>
+      </hp-slide>
+    </hp-presentation>
+  </hp-content>
   <script src="js/main.js"></script>
 </body>
 </html>
