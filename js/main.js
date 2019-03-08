@@ -47,7 +47,8 @@ function runLearningSequence() {
 function setLearnImage(imageName) {
     let img = document.querySelector('hp-slide.active hp-learn img');
 
-    img.src = 'images/' + imageName + '.svg';
+    if(img)
+        img.src = 'images/' + imageName + '.svg';
 }
 
 let shapes = ['circle', 'diamond', 'square', 'triangle'];
@@ -68,6 +69,28 @@ function handleAnimationEnd(e) {
     if (aa == 'animationend' && slide.classList.contains('active')) {
         handlePresentationClick(e);
     }
+}
+
+function animateSVG() {
+    if(animateSVGStep()) {
+        setTimeout(animateSVG, 30);
+    }
+}
+
+function animateSVGStep() {
+    let slide = document.querySelector('hp-slide.active'),
+        svgs = slide.querySelectorAll('svg');
+
+    if(svgs[0].children.length > 0) {
+        let el = svgs[0].children[0];
+
+        if(el) {
+            svgs[1].appendChild(el.parentNode.removeChild(el));
+        }
+        return true;
+    }
+
+    return false;
 }
 
 /*

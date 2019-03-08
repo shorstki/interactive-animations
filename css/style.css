@@ -31,12 +31,16 @@ hp-presentation>hp-slide {
     display: none;
 }
 hp-presentation>hp-slide.active {
-    display: inline-block;
+    display: flex;
 }
 
 
 hp-slide {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+
     width: 80%;
     height: 80%;
     margin: 10%;
@@ -185,4 +189,10 @@ hp-learn.match img {
     to {
         opacity: 0;
     }
+}
+
+path {
+    fill: none;
+    stroke: green;
+    stroke-width: 1.5vmin;
 }
